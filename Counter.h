@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 #include <vector>
 #include <iostream>
 #include <exception>
@@ -11,7 +12,7 @@
 class Counter
 {
 private:
-int16_t result[1]; ///< Результат вычислений
+int64_t result[1]; ///< Результат вычислений
 public:
     Counter(){}; ///<Конструктор без параметров
 
@@ -25,20 +26,20 @@ public:
  @endcode
 */
 
-int16_t * squares(std::vector<int16_t> arr)
+int64_t * squares(std::vector<int64_t> arr)
     {
 		try{
 			if (arr.empty()){
 		throw server_error(std::string("Count Error"));}
-    	for (std::vector<int16_t>::iterator it = arr.begin() ; it != arr.end(); ++it){
+    	for (std::vector<int64_t>::iterator it = arr.begin() ; it != arr.end(); ++it){
     	std::cout << ' ' << *it;}
   		std::cout << '\n';
         uint64_t sum = 0;
     		for (uint32_t i = 0; i < arr.size(); i++) {
-        sum += static_cast<int32_t>(arr[i]) * static_cast<int32_t>(arr[i]);
+        sum += static_cast<int64_t>(arr[i]) * static_cast<int64_t>(arr[i]);
     }
-    if (sum > static_cast<int32_t>(INT16_MAX)) {
-        result[0] = INT16_MAX;
+    if (sum > static_cast<int64_t>(INT64_MAX)) {
+        result[0] = INT64_MAX;
     } else result[0] = sum;
 		}catch(std::exception &e){
 			throw server_error(std::string("Count Error"));
@@ -46,3 +47,4 @@ int16_t * squares(std::vector<int16_t> arr)
         return result;
     }
 };
+

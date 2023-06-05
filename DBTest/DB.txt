@@ -1,4 +1,0 @@
-nevor 11223
-pochtivor 33221
-user/ P@ssW0rd
-user P@ssW0rd

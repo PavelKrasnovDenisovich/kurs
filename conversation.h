@@ -10,6 +10,18 @@
 
 using namespace std;
 
+#include "Auth.h"
+#include "Counter.h"
+#include "DataBase.h"
+#include <iostream>
+#include "WebManager.h"
+#include "ErrorTracker.h"
+#include <vector>
+#include <string>
+#include <map>
+
+using namespace std;
+
 /** 
  @brief Функция взаимодействия сервера с клиентом
  @details Алгоритм взаимодействия с клиентом:
@@ -72,13 +84,13 @@ void conversation(unsigned int port, std::string LogName, DB new_db, int sock)
             bytes_read = new_manager.receiving(sock, &num_vectors, sizeof num_vectors);
             for(unsigned int i =0; i< num_vectors; i++) {
                 bytes_read = new_manager.receiving(sock, &vector_len, sizeof vector_len);
-                int16_t int_buf[vector_len];
-                bytes_read = new_manager.receiving(sock, &int_buf, vector_len*sizeof(int16_t));
-                std::vector<int16_t> arr;
+                int64_t int_buf[vector_len];
+                bytes_read = new_manager.receiving(sock, &int_buf, vector_len*sizeof(int64_t));
+                std::vector<int64_t> arr;
                 for(unsigned int i =0; i< vector_len; i++) {
                     arr.push_back(int_buf[i]);
                 }
-                new_manager.sending(sock, Counter().squares(arr), sizeof(int16_t));
+                new_manager.sending(sock, Counter().squares(arr), sizeof(int64_t));
             }
             close(sock);
             std::cout<<"done\n";
