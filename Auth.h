@@ -1,10 +1,4 @@
-/** @file Auth.h
- *  @author Соколенко Н.С.
- *  @version 1.0
- *  @date 18.12.2022
- *  @copyright ИБСТ ПГУ
- *  @brief Класс для аутентификации клиента на сервере 
- */
+
 
 #pragma once
 #include <map>
