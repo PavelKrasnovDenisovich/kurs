@@ -34,7 +34,7 @@ public:
  @return bool, если идентификатор есть в базе - true, иначе false
  @throw std::server_error в случае отсутствия идентификатора в базе, штатная
  @code 
- type = invalid_argument, what ="Invalid ID"
+ type = invalid_argument, what ="NeponyalID"
  @endcode
 */
 

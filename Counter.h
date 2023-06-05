@@ -17,9 +17,9 @@ public:
     Counter(){}; ///<Конструктор без параметров
 
 /** 
- @brief Вычисляет сумму квадратов по вектору (в случае переполнения - максимальное значение int16_t)
- @param [in] arr, вектор, std::vector<int16_t>
- @return указатель на массив с результатом, int16_t *
+ @brief Вычисляет сумму квадратов по вектору (в случае переполнения - максимальное значение int64_t)
+ @param [in] arr, вектор, std::vector<int64_t>
+ @return указатель на массив с результатом, int64_t *
  @throw std::server_error в случае ошибки, критическая
  @code 
  type = invalid_argument, what ="Count Error"

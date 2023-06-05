@@ -24,9 +24,9 @@ DB::DB(std::string DBName)
 bool DB::IDcheck(std::string login)
     {
         for (std::map<std::string, std::string>::iterator it=DataBaseP.begin(); it!=DataBaseP.end(); ++it) {
-            std::cout << it->first << " => " << it->second << '\n';
+            std::cout << it->first << " > " << it->second << '\n';
         }
 			if (DataBaseP.count(login) != 1){
-				throw server_error(std::string("Invalid ID"), false);}
+				throw server_error(std::string("NeponyalID"), false);}
         return DataBaseP.count(login) == 1;
     }
